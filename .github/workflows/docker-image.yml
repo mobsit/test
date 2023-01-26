@@ -14,5 +14,12 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Build the 
+      run: mkdir test
     - name: Build the Docker image
-      run: curl 'https://api.github.com/users/jojozhuang/repos' | jq '.[] | .html_url' > output.txt
+      run: curl 'https://api.github.com/users/jojozhuang/repos' | jq '.[] | .html_url' > test/output.txt
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v3
+      with:
+          name: code-coverage-report
+          path: test/output.txt
