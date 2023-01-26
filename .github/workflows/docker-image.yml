@@ -16,10 +16,12 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the 
       run: mkdir test
+    - name : insatll jq
+      run: sudo apt-get install jq
     - name: Build the Docker image
-      run: curl 'https://api.github.com/users/jojozhuang/repos' | jq '.[] | .html_url' > test/output.txt
+      run: curl 'https://api.github.com/repos/airbnb/javascript/contents/package.json?ref=master' | jq '.[] ' > test
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
           name: code-coverage-report
-          path: test/output.txt
+          path: test
