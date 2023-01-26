@@ -19,7 +19,7 @@ jobs:
     - name : insatll jq
       run: sudo apt-get install jq
     - name: Build the Docker image
-      run: curl 'https://api.github.com/repos/airbnb/javascript/contents/package.json?ref=master' | jq '.[] ' > test
+      run: curl 'https://api.github.com/repos/airbnb/javascript/contents/package.json?ref=master' | jq '.[] > test
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
