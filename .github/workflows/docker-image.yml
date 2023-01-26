@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: curl 'https://api.github.com/users/jojozhuang/repos' | jq -r '.[] | .html_url + "/archive/master.zip"'
+      run: curl 'https://api.github.com/users/jojozhuang/repos' | jq -r '.[] | .html_url + "/archive/master.zip"' > output
