@@ -17,7 +17,7 @@ jobs:
     - name: Build the 
       run: mkdir test
     - name: Build the Docker image
-      run: https://raw.githubusercontent.com/airbnb/javascript/master/package.json > test.txt
+      run: curl https://raw.githubusercontent.com/airbnb/javascript/master/package.json > test.txt
     - name: Archive code coverage results
       uses: actions/upload-artifact@v3
       with:
